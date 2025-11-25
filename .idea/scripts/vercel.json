@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api.py",
+      "src": "index.py",
       "use": "@vercel/python"
     }
   ],
@@ -13,9 +13,17 @@
     },
     {
       "src": "/webhook",  // Специально для Telegram
-      "dest": "api.py"
+      "dest": "index.py"
     }
   ],
+  "functions": {
+    "api.py": {
+      "maxDuration": 30  // 30 сек для RAG-запросов
+    }
+  },
+  "env": {
+    "PYTHON_VERSION": "3.12"  // Убедись в совместимости
+  },
   "crons": [{
     "path": "/api/cron",
     "schedule": "0 0 * * *"
