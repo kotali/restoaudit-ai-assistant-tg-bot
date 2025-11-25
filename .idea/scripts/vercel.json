@@ -1,0 +1,16 @@
+{
+  "builds": [
+    {
+      "src": "api.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/webhook",
+      "dest": "api.py"
+    }
+  ],
+  "buildCommand": "pip install -r requirements.txt && python scripts/generate_docs.py && mkdocs build",
+  "outputDirectory": "./docs"
+}

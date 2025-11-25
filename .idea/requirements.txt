@@ -1,0 +1,12 @@
+aiogram==3.13.1
+llama-index==0.11.0
+llama-index-embeddings-openai==0.2.0
+llama-index-vector-stores-chroma==0.2.0
+chromadb==0.5.11
+python-dotenv==1.0.1
+notion-client==2.3.0
+mkdocs==1.6.0
+mkdocstrings[python]==0.26.3
+pydantic==2.9.2
+openai==1.51.0  # или anthropic для Claude
+schedule==1.2.3  # для cron-обновлений
