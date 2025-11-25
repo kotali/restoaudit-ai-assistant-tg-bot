@@ -1,16 +1,20 @@
 from fastapi import FastAPI, Request
-from bot import dp, bot  # Импорт из bot.py
+from aiogram import Bot  # Импорт твоего dp и bot
 import asyncio
-import uvicorn
 
-app = FastAPI()
+app = FastAPI()  # Обязательно!
 
-@app.post("/webhook")
+@app.post("/webhook")  # POST для Telegram updates
 async def webhook(request: Request):
     update = await request.json()
-    # Обработка webhook от Telegram
-    await dp.feed_update(bot, update)
+    await dp.feed_update(bot, update)  # Обработка
     return {"status": "ok"}
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# Для теста: GET на корень
+@app.get("/")
+async def root():
+    return {"message": "Bot is alive! Use /webhook for Telegram."}
+
+# Vercel ожидает это для Python
+def handler(request):
+    return app(request)  # Или используй uvicorn, но Vercel сам запустит
