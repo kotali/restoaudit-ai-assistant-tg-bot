@@ -13,7 +13,7 @@
     },
     {
       "src": "/webhook",  // Специально для Telegram
-      "dest": "index.py"
+      "dest": "api.py"
     }
   ],
   "functions": {
