@@ -11,6 +11,11 @@
       "dest": "api.py"
     }
   ],
+  "crons": [{
+    "path": "/api/cron",
+    "schedule": "0 0 * * *"
+  }],
+
   "buildCommand": "pip install -r requirements.txt && python scripts/generate_docs.py && mkdocs build",
   "outputDirectory": "./docs"
 }
